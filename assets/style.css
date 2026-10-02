@@ -1,0 +1,147 @@
+/* Ansar Games — calm pastel style shared by all pages (matches Zen Sort). */
+:root {
+  --bg-1: #f6f3ee;
+  --bg-2: #ede6f6;
+  --bg-3: #e2f1ee;
+  --surface: #ffffff;
+  --surface-soft: rgba(255, 255, 255, 0.72);
+  --text: #4a5560;
+  --text-soft: #6f7c87;
+  --primary: #7fa7a0;
+  --primary-strong: #5f8c84;
+  --secondary: #c9b6e4;
+  --accent: #f2c6b4;
+  --border: rgba(122, 140, 152, 0.22);
+  --shadow: 0 10px 30px rgba(95, 140, 132, 0.14);
+  --radius: 22px;
+  --font: ui-rounded, "Nunito", "Quicksand", "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-1: #232a31;
+    --bg-2: #283240;
+    --bg-3: #313d4c;
+    --surface: #2f3943;
+    --surface-soft: rgba(47, 57, 67, 0.78);
+    --text: #e9eef1;
+    --text-soft: #b3bec7;
+    --primary: #8fbdb5;
+    --primary-strong: #a6d1c9;
+    --secondary: #b7a4d6;
+    --accent: #e7b7a3;
+    --border: rgba(160, 180, 195, 0.22);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 55%, var(--bg-3) 100%) fixed;
+}
+
+a { color: var(--primary-strong); text-underline-offset: 3px; }
+a:hover { color: var(--text); }
+
+.wrap { width: 100%; max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+/* Header / footer */
+.site-header { padding: 22px 0 8px; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none; letter-spacing: 0.2px; }
+.brand-dot { width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffd2d2 0%, #f4a6a6 55%, #d98888 100%); box-shadow: 0 3px 8px rgba(244, 166, 166, 0.45); }
+.nav { display: flex; gap: 16px; font-weight: 700; font-size: 0.95rem; }
+.nav a { color: var(--text-soft); text-decoration: none; }
+.nav a:hover { color: var(--text); }
+
+.site-footer { padding: 36px 0 44px; color: var(--text-soft); font-size: 0.92rem; text-align: center; }
+.site-footer a { color: var(--text-soft); }
+
+/* Hero */
+.hero { text-align: center; padding: 48px 0 24px; }
+.hero h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.5px; }
+.hero p { margin: 0 auto; max-width: 560px; color: var(--text-soft); font-size: 1.08rem; }
+
+/* Cards */
+.card {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.games { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); padding: 12px 0 8px; }
+
+.game-card { display: flex; gap: 18px; align-items: center; text-decoration: none; color: inherit; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.game-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(95, 140, 132, 0.2); }
+.game-card img { width: 88px; height: 88px; border-radius: 22%; flex: none; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); }
+.game-card h2 { margin: 0 0 4px; font-size: 1.3rem; }
+.game-card p { margin: 0 0 10px; color: var(--text-soft); font-size: 0.98rem; line-height: 1.5; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 999px;
+  font-size: 0.85rem; font-weight: 800;
+  background: color-mix(in srgb, var(--secondary) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--secondary) 55%, transparent);
+  color: var(--text);
+}
+
+/* App page */
+.app-hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 0 16px; }
+.app-hero img { width: 140px; height: 140px; border-radius: 22%; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16); }
+.app-hero h1 { margin: 20px 0 6px; font-size: clamp(1.9rem, 6vw, 2.6rem); line-height: 1.2; }
+.app-hero .tagline { margin: 0 0 14px; color: var(--text-soft); font-size: 1.1rem; }
+
+.features { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.features li { padding: 14px 16px; border-radius: 16px; background: var(--surface-soft); border: 1px solid var(--border); }
+.features strong { display: block; }
+
+.links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 22px 0 6px; }
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 10px 22px; border-radius: 999px;
+  font-weight: 800; text-decoration: none;
+  background: var(--primary); color: #fff;
+  box-shadow: 0 8px 20px rgba(95, 140, 132, 0.28);
+}
+.button:hover { color: #fff; filter: brightness(1.05); }
+.button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: none; }
+.button.secondary:hover { color: var(--text); }
+
+section { margin: 26px 0; }
+section > h2 { font-size: 1.35rem; margin: 0 0 12px; }
+
+/* Long-form text (privacy policy) */
+.doc { padding: 28px clamp(18px, 4vw, 40px); margin: 18px 0 8px; }
+.doc h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.2; margin: 0 0 6px; }
+.doc .meta { color: var(--text-soft); margin: 0 0 18px; font-size: 0.95rem; }
+.doc h2 { font-size: 1.25rem; margin: 30px 0 8px; padding-top: 6px; }
+.doc h3 { font-size: 1.05rem; margin: 18px 0 6px; }
+.doc ul { padding-left: 1.2em; }
+.doc li { margin: 4px 0; }
+.doc .summary { background: color-mix(in srgb, var(--primary) 12%, transparent); border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent); border-radius: 16px; padding: 14px 18px; }
+.doc .summary ul { margin: 6px 0 0; }
+.toc { columns: 2 240px; margin: 8px 0 0; padding-left: 1.2em; }
+
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 520px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+th { font-weight: 800; }
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .game-card { flex-direction: column; text-align: center; }
+  .nav { gap: 12px; }
+}
