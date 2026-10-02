@@ -25,18 +25,16 @@ No build step, no tracking scripts, and no external fonts: the site uses the sys
 
 Settings → Pages → **Build and deployment: Deploy from a branch** → Branch **main**, folder **/ (root)**.
 
-## TODO: app-ads.txt (not created yet)
+## app-ads.txt
 
-AdMob needs an `app-ads.txt` file at the **root** of this site:
-`https://ansarkhan012.github.io/app-ads.txt`
-
-Once you have your AdMob publisher ID (`pub-XXXXXXXXXXXXXXXX`, shown in AdMob → Settings → Account information), create `app-ads.txt` in the root of this repo containing exactly the line AdMob shows you, for example:
+`app-ads.txt` is at the root of this site, as AdMob requires:
+https://ansarkhan012.github.io/app-ads.txt
 
 ```
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-6939327867611226, DIRECT, f08c47fec0942fa0
 ```
 
-Also put `https://ansarkhan012.github.io/` in the **Website** field of the Google Play store listing, because AdMob looks for `app-ads.txt` on that domain. Verification in AdMob can take up to 24 hours.
+Keep `https://ansarkhan012.github.io/` in the **Website** field of the Google Play store listing: AdMob looks for `app-ads.txt` on that domain. Verification in AdMob (Apps → View all apps → app-ads.txt) can take up to 24 hours.
 
 ## Updating the privacy policy
 
