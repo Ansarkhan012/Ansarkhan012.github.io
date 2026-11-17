@@ -145,3 +145,24 @@ th { font-weight: 800; }
   .game-card { flex-direction: column; text-align: center; }
   .nav { gap: 12px; }
 }
+
+/* Studio identity shared by the game and policy pages. */
+.brand .studio-brand-mark { width: 38px; height: 38px; object-fit: contain; border-radius: 9px; flex: none; }
+:focus-visible { outline: 3px solid #3186bd; outline-offset: 5px; }
+img { max-width: 100%; }
+.site-footer a, .doc a, .policy a { overflow-wrap: anywhere; }
+@media (max-width: 620px) {
+ .site-header .wrap { gap: 18px; }
+ .site-header .nav { width: 100%; flex-wrap: wrap; gap: 12px 24px; }
+ .site-header .nav a { min-height: 44px; display: inline-flex; align-items: center; }
+ .features, .grid, .modes { grid-template-columns: 1fr; }
+ .card, .wood { min-width: 0; }
+ .doc, .policy { overflow-wrap: break-word; }
+}
+
+@font-face { font-family: Outfit; src: url('fonts/Outfit-Variable.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+.site-header .brand { font-family: Outfit, system-ui, sans-serif; font-size: 25px; font-weight: 750; letter-spacing: -.7px; }
+@media (max-width: 620px) {
+ body .features, body .grid, body .modes { grid-template-columns: minmax(0, 1fr); }
+ .site-header .brand { font-size: 24px; }
+}
