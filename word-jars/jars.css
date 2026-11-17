@@ -1,0 +1,81 @@
+/* Word Jars pages: cream paper, navy ink, mustard and sage, matching the game.
+   Loaded after ../assets/style.css (shared site layout).
+   Fraunces Black (SIL OFL 1.1, assets/fonts/Fraunces-OFL.txt) is self-hosted
+   for headings, so the pages still load nothing from third parties. */
+@font-face {
+  font-family: "Fraunces";
+  src: url("../assets/fonts/Fraunces-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+}
+
+body.jars {
+  --bg-1: #f6efe0;
+  --bg-2: #f3e9d4;
+  --bg-3: #efe4cc;
+  --surface: #fffaf0;
+  --surface-soft: rgba(255, 250, 240, 0.86);
+  --text: #22304a;
+  --text-soft: #4f5b70;
+  --primary: #e0a526;
+  --primary-strong: #9a6d0e;
+  --secondary: #7a9e7e;
+  --accent: #c8553d;
+  --border: rgba(34, 48, 74, 0.28);
+  --shadow: 3px 4px 0 #22304a;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.jars {
+    --bg-1: #1b2436;
+    --bg-2: #1f2a3f;
+    --bg-3: #233048;
+    --surface: #26324a;
+    --surface-soft: rgba(38, 50, 74, 0.9);
+    --text: #f6efe0;
+    --text-soft: #d3cab7;
+    --primary: #e0a526;
+    --primary-strong: #f0c35a;
+    --secondary: #8fb593;
+    --accent: #e07a62;
+    --border: rgba(246, 239, 224, 0.26);
+    --shadow: 3px 4px 0 rgba(0, 0, 0, 0.45);
+  }
+}
+
+body.jars h1,
+body.jars h2 { font-family: "Fraunces", Georgia, "Times New Roman", serif; font-weight: 900; letter-spacing: 0; }
+
+/* Flat paper cards with a hard ink shadow, like the game's tags and tickets. */
+body.jars .card { border: 2.5px solid var(--text); box-shadow: var(--shadow); backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.jars .features li { background: var(--surface); border: 2px solid var(--border); }
+body.jars .brand-dot { background: radial-gradient(circle at 35% 30%, #f5cf6e 0%, #e0a526 60%, #b98614 100%); box-shadow: none; border: 2px solid var(--text); }
+
+body.jars .button { background: var(--primary); color: #22304a; border: 2.5px solid #22304a; box-shadow: 3px 4px 0 #22304a; }
+body.jars .button:hover { color: #22304a; filter: brightness(1.04); }
+body.jars .button.secondary { background: var(--surface); color: var(--text); border-color: var(--text); }
+
+body.jars .pill { background: color-mix(in srgb, var(--secondary) 30%, transparent); border: 2px solid var(--secondary); }
+
+body.jars .app-hero img { box-shadow: 4px 5px 0 #22304a; border: 2.5px solid #22304a; }
+
+/* Word tags: the three rows of the How to Play section. */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.steps li { display: flex; gap: 14px; align-items: flex-start; }
+.steps .num {
+  flex: none; width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e0a526; color: #22304a; border: 2.5px solid #22304a;
+  font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 1.1rem;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
+.tags li {
+  padding: 2px 14px; border-radius: 8px; font-weight: 800; letter-spacing: 0.4px; font-size: 0.95rem;
+  background: #fffaf0; color: #22304a; border: 2px solid #22304a; box-shadow: 1.5px 2px 0 #22304a;
+}
+.tags li.sealed { background: #7a9e7e; }
+
+@media (prefers-reduced-motion: no-preference) {
+  body.jars .button { transition: transform 70ms ease; }
+  body.jars .button:active { transform: scale(0.98); }
+}
