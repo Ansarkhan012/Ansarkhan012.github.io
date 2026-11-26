@@ -1,0 +1,259 @@
+/* Pocket Playroom pages: warm toy-box room, soft glossy cards and violet
+   buttons, matching the game. Loaded after ../assets/style.css (shared layout).
+   Fredoka (SIL OFL 1.1, assets/fonts/Fredoka-OFL.txt) is self-hosted, so the
+   pages still load nothing from third parties. */
+@font-face {
+  font-family: "Fredoka";
+  src: url("../assets/fonts/Fredoka-SemiBold.woff2") format("woff2");
+  font-weight: 500 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fredoka";
+  src: url("../assets/fonts/Fredoka-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+:root {
+  --pp-bg-1: #fff4e6;
+  --pp-bg-2: #fbe7d6;
+  --pp-bg-3: #ecdcff;
+  --pp-card: #ffffff;
+  --pp-card-2: #fbf6ff;
+  --pp-card-edge: #eadff7;
+  --pp-ink: #2b2450;
+  --pp-ink-soft: #5d5680;
+  --pp-violet-hi: #9b82ff;
+  --pp-violet: #7a5cf2;
+  --pp-violet-lo: #5b3fd9;
+  --pp-violet-rim: #4a31b8;
+  --pp-gold: #ffc83d;
+  --pp-gold-rim: #d99a0b;
+  --pp-leaf: #7fc46a;
+  --pp-leaf-2: #5aa64a;
+  --pp-tint-violet: #efe9ff;
+  --pp-tint-gold: #fff3d1;
+  --pp-tint-pink: #ffe6ec;
+  --pp-tint-teal: #dcf6f1;
+  --pp-shadow: rgba(74, 49, 184, 0.16);
+  --font-display: "Fredoka", ui-rounded, "Nunito", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pp-bg-1: #231d45;
+    --pp-bg-2: #1c1738;
+    --pp-bg-3: #15112b;
+    --pp-card: #2f2858;
+    --pp-card-2: #2a2350;
+    --pp-card-edge: #463d7a;
+    --pp-ink: #f6f1ff;
+    --pp-ink-soft: #c9c0ec;
+    --pp-tint-violet: #3a3170;
+    --pp-tint-gold: #4a3d22;
+    --pp-tint-pink: #4b2a40;
+    --pp-tint-teal: #1f4744;
+    --pp-shadow: rgba(0, 0, 0, 0.35);
+  }
+}
+
+body.playroom {
+  color: var(--pp-ink);
+  font-family: var(--font-display);
+  background:
+    radial-gradient(circle at 10% 6%, rgba(255, 255, 255, 0.55), transparent 120px),
+    radial-gradient(circle at 92% 18%, rgba(196, 175, 255, 0.35), transparent 140px),
+    radial-gradient(ellipse at 50% -10%, rgba(255, 236, 200, 0.9), transparent 60%),
+    linear-gradient(180deg, var(--pp-bg-1) 0%, var(--pp-bg-2) 45%, var(--pp-bg-3) 100%) fixed;
+  background-attachment: fixed;
+}
+@media (prefers-color-scheme: dark) {
+  body.playroom {
+    background:
+      radial-gradient(circle at 12% 8%, rgba(155, 130, 255, 0.18), transparent 140px),
+      radial-gradient(circle at 90% 20%, rgba(255, 200, 61, 0.08), transparent 120px),
+      linear-gradient(180deg, var(--pp-bg-1) 0%, var(--pp-bg-2) 50%, var(--pp-bg-3) 100%) fixed;
+  }
+}
+body.playroom a { color: var(--pp-violet-lo); }
+@media (prefers-color-scheme: dark) { body.playroom a { color: #c3b4ff; } }
+body.playroom .site-header .brand,
+body.playroom .nav a { color: var(--pp-ink); }
+body.playroom .nav a:hover { text-decoration: underline; }
+body.playroom .site-footer,
+body.playroom .site-footer a { color: var(--pp-ink-soft); }
+
+/* ------------------------------------------------------------ leaves */
+.leaves { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.leaf {
+  position: absolute; width: 46px; height: 24px;
+  border-radius: 0 100% 0 100%;
+  background: linear-gradient(135deg, var(--pp-leaf), var(--pp-leaf-2));
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.08);
+  opacity: 0.85;
+}
+.leaf::after {
+  content: ""; position: absolute; left: 6px; right: 6px; top: 50%; height: 2px;
+  background: rgba(255, 255, 255, 0.45); transform: rotate(-22deg);
+}
+@media (max-width: 620px) { .leaves .hide-sm { display: none; } }
+
+/* ------------------------------------------------------------ cards */
+.card {
+  position: relative;
+  border-radius: 28px;
+  padding: 26px clamp(18px, 4vw, 34px);
+  background: linear-gradient(180deg, var(--pp-card) 0%, var(--pp-card-2) 100%);
+  border: 2px solid var(--pp-card-edge);
+  box-shadow:
+    inset 0 3px 0 rgba(255, 255, 255, 0.7),
+    0 8px 0 -2px var(--pp-card-edge),
+    0 18px 34px var(--pp-shadow);
+}
+@media (prefers-color-scheme: dark) {
+  .card { box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.08), 0 8px 0 -2px #1b1636, 0 18px 34px var(--pp-shadow); }
+}
+.card > h2:first-child { margin-top: 0; }
+.card h2, .room-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin: 0 0 12px;
+}
+.room-title { text-align: center; }
+
+/* ------------------------------------------------------------ hero */
+.pp-hero { position: relative; text-align: center; padding: 34px 0 14px; }
+.pp-hero .icon {
+  position: relative;
+  width: 136px; height: 136px; border-radius: 28%;
+  box-shadow: 0 7px 0 var(--pp-violet-rim), 0 20px 38px rgba(74, 49, 184, 0.32);
+}
+.logo {
+  position: relative;
+  margin: 20px 0 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--pp-ink);
+}
+.logo .w1 { display: block; font-size: clamp(1.7rem, 6vw, 2.5rem); color: var(--pp-violet); }
+.logo .w2 { display: block; font-size: clamp(2.9rem, 12vw, 5rem); letter-spacing: 0.5px; }
+@media (prefers-color-scheme: dark) { .logo .w1 { color: #b6a5ff; } }
+.tagline {
+  position: relative;
+  margin: 10px auto 18px;
+  max-width: 540px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--pp-ink-soft);
+}
+
+/* ------------------------------------------------------------ buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 10px 26px; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.1rem;
+  text-decoration: none; color: #fff !important;
+  background: linear-gradient(180deg, var(--pp-violet-hi), var(--pp-violet) 55%, var(--pp-violet-lo));
+  border: 3px solid var(--pp-violet-rim);
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.4), 0 6px 0 var(--pp-violet-rim), 0 12px 22px rgba(74, 49, 184, 0.28);
+  text-shadow: 0 2px 0 rgba(43, 25, 140, 0.55);
+  transition: transform 0.12s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(2px); }
+.btn.light {
+  color: var(--pp-ink) !important; text-shadow: none;
+  background: linear-gradient(180deg, #ffffff, #f1ebff);
+  border-color: #cdbff5;
+  box-shadow: 0 6px 0 #cdbff5, 0 12px 20px rgba(74, 49, 184, 0.14);
+}
+.soon {
+  position: relative;
+  display: inline-block; margin-top: 4px; padding: 7px 18px; border-radius: 999px;
+  font-weight: 700; font-size: 0.95rem; color: #4a3000;
+  background: linear-gradient(180deg, #ffe08a, var(--pp-gold));
+  border: 2px solid var(--pp-gold-rim);
+  box-shadow: 0 4px 0 var(--pp-gold-rim);
+}
+
+/* ------------------------------------------------------------ content */
+.lead { font-size: 1.12rem; margin: 0 0 16px; }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.tile {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 14px 16px; border-radius: 20px;
+  background: var(--tint, var(--pp-tint-violet));
+  border: 2px solid rgba(122, 92, 242, 0.14);
+}
+.tile strong { display: block; font-size: 1.06rem; }
+.tile span { font-family: var(--font); font-size: 0.97rem; color: var(--pp-ink-soft); line-height: 1.5; }
+.tile svg { flex: none; width: 38px; height: 38px; }
+
+/* The ten games */
+.games { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.game {
+  display: flex; gap: 12px; align-items: center;
+  padding: 12px 14px; border-radius: 20px;
+  background: var(--pp-card-2); border: 2px solid var(--pp-card-edge);
+}
+.game .gi {
+  flex: none; width: 46px; height: 46px; border-radius: 14px;
+  display: grid; place-items: center;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 72%, #fff), var(--c) 55%, color-mix(in srgb, var(--c) 82%, #000));
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.45), 0 4px 0 color-mix(in srgb, var(--c) 65%, #000);
+}
+.game .gi svg { width: 26px; height: 26px; }
+.game strong { display: block; font-size: 1.05rem; }
+.game span { font-family: var(--font); font-size: 0.93rem; color: var(--pp-ink-soft); line-height: 1.4; }
+.cat { font-size: 0.75rem; padding: 2px 9px; border-radius: 999px; color: #fff; margin-left: 6px; vertical-align: 2px; }
+.cat.puzzle { background: #7a5cf2; }
+.cat.arcade { background: #f0644a; }
+.cat.brain { background: #17a596; }
+
+/* Screenshot shelf */
+.shelf {
+  padding: 18px 0 18px 18px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(122, 92, 242, 0.16), rgba(122, 92, 242, 0.08));
+  border: 2px solid var(--pp-card-edge);
+}
+.shelf ul { list-style: none; margin: 0; padding: 0 18px 0 0; display: flex; gap: 16px; }
+.shelf li { flex: none; scroll-snap-align: center; text-align: center; color: var(--pp-ink); font-weight: 600; }
+.phone {
+  display: block; width: 196px; aspect-ratio: 9 / 16; object-fit: cover; object-position: top;
+  border-radius: 26px; border: 6px solid var(--pp-ink);
+  box-shadow: 0 10px 24px rgba(43, 36, 80, 0.35);
+  background: var(--pp-ink); margin-bottom: 8px;
+}
+@media (prefers-color-scheme: dark) { .phone { border-color: #0f0c20; background: #0f0c20; } }
+
+.center { text-align: center; }
+.links-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 18px 0 8px; }
+.small { font-family: var(--font); font-size: 0.95rem; color: var(--pp-ink-soft); }
+
+/* ------------------------------------------------------------ privacy doc */
+.policy { font-family: var(--font); font-size: 1rem; line-height: 1.7; }
+.policy h1, .policy h2, .policy h3 { font-family: var(--font-display); color: var(--pp-ink); }
+.policy h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 0 0 4px; }
+.policy h2 { font-size: 1.3rem; margin: 30px 0 8px; padding-top: 4px; scroll-margin-top: 16px; }
+.policy .meta { color: var(--pp-ink-soft); margin: 0 0 18px; }
+.policy a { font-weight: 600; }
+.policy ul { padding-left: 1.2em; }
+.policy li { margin: 4px 0; }
+.policy .summary {
+  background: var(--pp-tint-violet); border: 2px solid rgba(122, 92, 242, 0.28);
+  border-radius: 20px; padding: 14px 18px;
+}
+.policy .summary h2 { margin-top: 0; }
+.policy .summary ul { margin: 6px 0 0; }
+.policy .toc { columns: 2 230px; margin: 8px 0 0; padding-left: 1.3em; }
+.policy .table-wrap { overflow-x: auto; border-radius: 16px; background: var(--pp-card-2); border: 1px solid var(--pp-card-edge); }
+.policy table { border-collapse: collapse; min-width: 560px; width: 100%; }
+.policy th, .policy td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--pp-card-edge); }
+
+@media (max-width: 520px) {
+  .card { border-radius: 22px; }
+  .phone { width: 164px; }
+}

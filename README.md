@@ -11,6 +11,8 @@ Static site (plain HTML/CSS) served by GitHub Pages at **https://ansarkhan012.gi
 | Block Bloom privacy policy | https://ansarkhan012.github.io/block-bloom/privacy-policy.html |
 | Word Jars app page | https://ansarkhan012.github.io/word-jars/ |
 | Word Jars privacy policy | https://ansarkhan012.github.io/word-jars/privacy-policy.html |
+| Pocket Playroom app page | https://ansarkhan012.github.io/pocket-playroom/ |
+| Pocket Playroom privacy policy | https://ansarkhan012.github.io/pocket-playroom/privacy-policy.html |
 
 ## Structure
 
@@ -25,6 +27,10 @@ block-bloom/screens/*.webp    In-game screenshots
 word-jars/index.html          Word Jars app page (how to play, support + privacy links)
 word-jars/privacy-policy.html Word Jars privacy policy (effective October 22, 2026)
 word-jars/jars.css            Word Jars cream paper + ink theme (on top of style.css)
+pocket-playroom/index.html    Pocket Playroom app page (ten games, screenshots, support)
+pocket-playroom/privacy-policy.html  Pocket Playroom privacy policy (effective November 26, 2026)
+pocket-playroom/playroom.css  Pocket Playroom toy-room theme (on top of style.css)
+pocket-playroom/screens/*.webp  In-game screenshots
 assets/style.css              Shared calm pastel style (light + dark mode)
 assets/fonts/                 Fredoka (SIL OFL 1.1) for the Block Bloom pages, Fraunces Black (SIL OFL 1.1) for the Word Jars pages, self-hosted
 assets/*.png                  Icons generated from the app's assets/icon/app_icon.png
