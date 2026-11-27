@@ -13,6 +13,8 @@ Static site (plain HTML/CSS) served by GitHub Pages at **https://ansarkhan012.gi
 | Word Jars privacy policy | https://ansarkhan012.github.io/word-jars/privacy-policy.html |
 | Pocket Playroom app page | https://ansarkhan012.github.io/pocket-playroom/ |
 | Pocket Playroom privacy policy | https://ansarkhan012.github.io/pocket-playroom/privacy-policy.html |
+| Flicko Party app page | https://ansarkhan012.github.io/flicko-party/ |
+| Flicko Party privacy policy | https://ansarkhan012.github.io/flicko-party/privacy-policy.html |
 
 ## Structure
 
@@ -31,6 +33,10 @@ pocket-playroom/index.html    Pocket Playroom app page (ten games, screenshots, 
 pocket-playroom/privacy-policy.html  Pocket Playroom privacy policy (effective November 26, 2026)
 pocket-playroom/playroom.css  Pocket Playroom toy-room theme (on top of style.css)
 pocket-playroom/screens/*.webp  In-game screenshots
+flicko-party/index.html       Flicko Party app page (modes, heroes, powers, maps, roadmap, support)
+flicko-party/privacy-policy.html  Flicko Party privacy policy (effective November 27, 2026; section 9 lists planned online features)
+flicko-party/flicko.css       Flicko Party purple sunburst + candy theme (on top of style.css)
+flicko-party/screens|heroes|maps|skins|art|icons  Images taken from the game (store/make_store_art.py in the game project)
 assets/style.css              Shared calm pastel style (light + dark mode)
 assets/fonts/                 Fredoka (SIL OFL 1.1) for the Block Bloom pages, Fraunces Black (SIL OFL 1.1) for the Word Jars pages, self-hosted
 assets/*.png                  Icons generated from the app's assets/icon/app_icon.png
@@ -52,8 +58,8 @@ https://ansarkhan012.github.io/app-ads.txt
 google.com, pub-6939327867611226, DIRECT, f08c47fec0942fa0
 ```
 
-The same AdMob publisher ID covers Zen Sort, Block Bloom and Word Jars. Keep `https://ansarkhan012.github.io/` in the **Website** field of each app's Google Play store listing: AdMob looks for `app-ads.txt` on that domain. Verification in AdMob (Apps → View all apps → app-ads.txt) can take up to 24 hours.
+The same AdMob publisher ID covers Zen Sort, Block Bloom, Word Jars, Pocket Playroom and Flicko Party. Keep `https://ansarkhan012.github.io/` in the **Website** field of each app's Google Play store listing: AdMob looks for `app-ads.txt` on that domain. Verification in AdMob (Apps → View all apps → app-ads.txt) can take up to 24 hours.
 
 ## Updating the privacy policy
 
-When an app adds or removes a service (SDK) or starts collecting new data, update its policy (`zen-sort/privacy-policy.html`, `block-bloom/privacy-policy.html` or `word-jars/privacy-policy.html`) and change the effective date.
+When an app adds or removes a service (SDK) or starts collecting new data, update its policy (`zen-sort/privacy-policy.html`, `block-bloom/privacy-policy.html`, `word-jars/privacy-policy.html`, `pocket-playroom/privacy-policy.html` or `flicko-party/privacy-policy.html`) and change the effective date.
